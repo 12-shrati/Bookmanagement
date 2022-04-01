@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const isValid = function (value) {
     if (typeof value === "undefined" || value === null) return false
     if (typeof value === 'string' && value.trim().length === 0) return false
+    if (typeof value === 'number' && value.trim().length === 0) return false
     return true
 }
 
@@ -30,7 +31,7 @@ const createReview = async function (req, res) {
 
         if (!isValidRequestBody(data)) return res.status(400).send({ status: false, msg: "data is required in body" })
 
-        const { bookId, rating,} = data
+        const { bookId, rating, } = data
 
         if (!isValid(bookId)) return res.status(400).send({ status: false, msg: "bookId should be valid" })
 

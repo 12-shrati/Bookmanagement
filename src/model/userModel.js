@@ -1,46 +1,34 @@
 const mongoose = require("mongoose")
-const validator = require("validator")
+
 
 const userSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: [true, "Title is require"],
+        required: true,
         enum: ['Mr', 'Mrs', 'Miss'],
         trim:true
     },
     name: {
         type: String,
-        required: [true, "Name is require"],
+        required: true,
         trim: true
     },
     phone: {
         type: String,
-        required: [true, "Phone Number is require"],
-        unique: [true, "Phone No. should be Unique"],
-        validate: {
-            validator: function (phone) {
-                return /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/.test(phone)
-            },
-            message: "Please fill valid phone number",
-            isAsync: false
-        }
+        required: true, 
+        unique: true, 
     },
     email: {
         type: String,
-        required: [true, "email is require"],
-        unique: [true, "email should be Unique"],
-        validate: {
-            validator: validator.isEmail,
-            message: `email is not a valid email`,
-            isAsync: false
-        }
+        required: true, 
+        unique: true, 
     },
     password: {
         type: String,
-        required: [true, "Password is required"],
+        required: true, 
         trim: true,
-        minLength: [8, "Password Minimum Length should be 8"],
-        maxLength: [15, "Password Maximum Length should be 15"]
+        minLength: 8, 
+        maxLength: 15 
     },
     address: {
         street: { type: String, trim: true },
