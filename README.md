@@ -320,6 +320,3 @@ Refer below sample
   }
 }
 ```
-$or: [{ userId: userId, category: category },
-                { userId: userId, subcategory: subcategory },
-                { category: category, subcategory: subcategory }]

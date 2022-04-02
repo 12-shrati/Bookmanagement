@@ -62,7 +62,7 @@ const registerUser = async function (req, res) {
     }
 
     if (!isValid(password)) { return res.status(400).send({ status: false, message: "Password is require" }) }
-    if (password < 8 || password > 15) {
+    if (password.length < 8 || password.length > 15) {
       return res.status(400).send({ status: false, message: "Password length should not be less than 8 and greater than 15" })
     }
     let createUser = await userModel.create(requestBody)

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-const validator = require('validator');
-let moment = require("moment")
+
 
 
 const booksSchema = new mongoose.Schema({
@@ -58,13 +57,3 @@ const booksSchema = new mongoose.Schema({
 module.exports = mongoose.model('Books', booksSchema)
 
 
-// {
-//     "title":"mistakes",
-//     "excerpt":"ghdf",
-//     "userId":"",
-//     "ISBN":"",
-//     "category":"",
-//     "subcategory":"",
-//     "reviews":,
-//     "releasedAt":
-// }
